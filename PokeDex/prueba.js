@@ -53,8 +53,13 @@ function createPokemon(pokemon) {
                 </div>
                 `).join("")}   
             `,
+            confirmButtonText: 'OK',
+            cancelButtonText: 'Enviar',
+            showCancelButton: true,
+            showCloseButton: true,
             imageWidth: "80%",
             imageHeight: "80%",
+            
         });
 
             let containerHtml = document.querySelector("#swal2-html-container")
@@ -62,8 +67,12 @@ function createPokemon(pokemon) {
                 let myLabel = e.target.nextElementSibling;
                 myLabel.innerHTML = `<b>${e.target.value}</b> ${myLabel.dataset.name}` 
             })
-    })
 
+            let sendMockAPI = document.querySelector(".swal2-html-container")
+            sendMockAPI.addEventListener("change", (e) =>{
+                console.log(e.target);
+            })
+    })
 
     // Añadir elementos a Card
 
