@@ -41,18 +41,27 @@ function createPokemon(pokemon) {
             // imageUrl:  `${(img) ?  img : defaultImg}`,
             html: `
                 ${pokemon.stats.map(data=>`
+                <div>
                     <input 
                         type="range" 
-                        id="uno" 
-                        value="${data.base_stat}">
-                    <label for="uno"> 
-                        ${data.base_stat} 
-                        ${data.stat.name}</label><br>
-                        `).join("")}   
+                        value=${data.base_stat}
+                        name />
+                    <label data-name=${data.stat.name}> 
+                        <b>${data.base_stat}</b> 
+                        ${data.stat.name}
+                    </label>
+                </div>
+                `).join("")}   
             `,
             imageWidth: "80%",
             imageHeight: "80%",
         });
+
+            let containerHtml = document.querySelector("#swal2-html-container")
+            containerHtml.addEventListener("input", (e) =>{
+                let myLabel = e.target.nextElementSibling;
+                myLabel.innerHTML = `<b>${e.target.value}</b> ${myLabel.dataset.name}` 
+            })
     })
 
 
