@@ -29,16 +29,11 @@ function createPokemon(pokemon) {
     // Poner la Imagen del Pokemon dentro del contenedor.
     imgContainerPokemon.appendChild(imgPokemon);
     
-
-    // ID de Pokemon
-    const numPokemon = document.createElement('p');
-    numPokemon.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
-
     // Crear nombre, añadir clase Name y el nombre del Pokemon
     const name = document.createElement('button');;
     name.id = 'myPokemon';
     name.innerText = pokemon.name;
-    name.addEventListener('click', () =>{
+    name.addEventListener('click',async() =>{
         Swal.fire({
             title: `${pokemon.name}`,
             text: 'Modal with a custom image.',
@@ -64,10 +59,9 @@ function createPokemon(pokemon) {
     // Añadir elementos a Card
 
     card.appendChild(imgContainerPokemon);
-    card.appendChild(numPokemon);
     card.appendChild(name);
 
     pokemonContainer.appendChild(card);
 
 }
-showPokemon(10);
+showPokemon(20);
