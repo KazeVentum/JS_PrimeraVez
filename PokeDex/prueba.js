@@ -45,7 +45,7 @@ function createPokemon(pokemon) {
                     <input 
                         type="range" 
                         value=${data.base_stat}
-                        max="200"/>
+                        max="200" id="${data.stat.name}"/>
                     <label data-name=${data.stat.name}> 
                         <b>${data.base_stat}</b> 
                         ${data.stat.name}
@@ -61,23 +61,57 @@ function createPokemon(pokemon) {
             imageHeight: "80%",
         });
 
-        let sendMockAPI = document.querySelector("#swal2-html-container")
-        sendMockAPI.addEventListener("change", (e) =>{
-            let changeStats = e.target.value
-            let myLabel = e.target.nextElementSibling;
+        // let sendMockAPI = document.querySelector("#swal2-html-container")
+        // sendMockAPI.addEventListener("change", (e) =>{
+        //     let changeStats = e.target.value
+        //     let myLabel = e.target.nextElementSibling;
+        //     console.group("Estadisticas",pokemon.name);
+        //     console.log(changeStats,myLabel.dataset.name);
+        //     console.groupEnd();
+        // })
+
+        const mostrarInfo = {}
+
+        let hearHp = document.querySelector("#hp")
+        hearHp.addEventListener("change", (e) =>{
+            mostrarInfo.Hp = { estadistica: e.target.value};
+        });
+
+        let hearAttack = document.querySelector("#attack")
+        hearAttack.addEventListener("change", (e) =>{
+            mostrarInfo.Attack= { estadistica: e.target.value};
+        });
+        
+        let hearDefense = document.querySelector("#defense")
+        hearDefense.addEventListener("change", (e) =>{
+            mostrarInfo.Defense= { estadistica: e.target.value};
+        });
+
+        let hearSpecialAttack = document.querySelector("#special-attack")
+        hearSpecialAttack.addEventListener("change", (e) =>{
+            mostrarInfo.SpecialAttack= { estadistica: e.target.value};
+        });
+
+        let hearSpecialDefense = document.querySelector("#special-defense")
+        hearSpecialDefense.addEventListener("change", (e) =>{
+            mostrarInfo.SpecialDefense= { estadistica: e.target.value};
+        });
+
+        let hearSpeed = document.querySelector("#speed")
+        hearSpeed.addEventListener("change", (e) =>{
+            mostrarInfo.Speed= { estadistica: e.target.value};
+        });
+
+        //mostrar Informacion
+        let sendMockAPI = document.querySelector(".swal2-styled.swal2-cancel")
+        sendMockAPI.addEventListener("click", (e) =>{
             console.group("Estadisticas",pokemon.name);
-            console.log(changeStats,myLabel.dataset.name);
+            console.log(mostrarInfo);
             console.groupEnd();
         })
-        
+
         //La idea es escuchar los cambios sin enviarlos y guardarlos en un array
         //Luego cuando le de enviar, mostrar un console.log con el grupo y que muestre todas las estadisticas que se cambiaron.
-
-        let containerHtml = document.querySelector("#swal2-html-container")
-        containerHtml.addEventListener("input", (e) =>{
-            let myLabel = e.target.nextElementSibling;
-            myLabel.innerHTML = `<b>${e.target.value}</b> ${myLabel.dataset.name}` 
-        })
     })
 
     // Añadir elementos a Card
