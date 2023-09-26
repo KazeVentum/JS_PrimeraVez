@@ -45,7 +45,7 @@ function createPokemon(pokemon) {
                     <input 
                         type="range" 
                         value=${data.base_stat}
-                        name />
+                        max="200"/>
                     <label data-name=${data.stat.name}> 
                         <b>${data.base_stat}</b> 
                         ${data.stat.name}
@@ -59,19 +59,25 @@ function createPokemon(pokemon) {
             showCloseButton: true,
             imageWidth: "80%",
             imageHeight: "80%",
-            
         });
 
-            let containerHtml = document.querySelector("#swal2-html-container")
-            containerHtml.addEventListener("input", (e) =>{
-                let myLabel = e.target.nextElementSibling;
-                myLabel.innerHTML = `<b>${e.target.value}</b> ${myLabel.dataset.name}` 
-            })
+        let sendMockAPI = document.querySelector("#swal2-html-container")
+        sendMockAPI.addEventListener("change", (e) =>{
+            let changeStats = e.target.value
+            let myLabel = e.target.nextElementSibling;
+            console.group("Estadisticas",pokemon.name);
+            console.log(changeStats,myLabel.dataset.name);
+            console.groupEnd();
+        })
+        
+        //La idea es escuchar los cambios sin enviarlos y guardarlos en un array
+        //Luego cuando le de enviar, mostrar un console.log con el grupo y que muestre todas las estadisticas que se cambiaron.
 
-            let sendMockAPI = document.querySelector(".swal2-html-container")
-            sendMockAPI.addEventListener("change", (e) =>{
-                console.log(e.target);
-            })
+        let containerHtml = document.querySelector("#swal2-html-container")
+        containerHtml.addEventListener("input", (e) =>{
+            let myLabel = e.target.nextElementSibling;
+            myLabel.innerHTML = `<b>${e.target.value}</b> ${myLabel.dataset.name}` 
+        })
     })
 
     // Añadir elementos a Card
@@ -82,4 +88,4 @@ function createPokemon(pokemon) {
     pokemonContainer.appendChild(card);
 
 }
-showPokemon(20);
+showPokemon(100);
