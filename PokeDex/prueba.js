@@ -61,59 +61,77 @@ function createPokemon(pokemon) {
             imageHeight: "80%",
         });
 
-        // let sendMockAPI = document.querySelector("#swal2-html-container")
-        // sendMockAPI.addEventListener("change", (e) =>{
-        //     let changeStats = e.target.value
-        //     let myLabel = e.target.nextElementSibling;
-        //     console.group("Estadisticas",pokemon.name);
-        //     console.log(changeStats,myLabel.dataset.name);
-        //     console.groupEnd();
-        // })
-
         const mostrarInfo = {}
+
+        mostrarInfo.Pokemon = pokemon.name;
 
         let hearHp = document.querySelector("#hp")
         hearHp.addEventListener("change", (e) =>{
-            mostrarInfo.Hp = { estadistica: e.target.value};
+            mostrarInfo.Hp = e.target.value;
         });
 
         let hearAttack = document.querySelector("#attack")
         hearAttack.addEventListener("change", (e) =>{
-            mostrarInfo.Attack= { estadistica: e.target.value};
+            mostrarInfo.Attack = e.target.value;
         });
         
         let hearDefense = document.querySelector("#defense")
         hearDefense.addEventListener("change", (e) =>{
-            mostrarInfo.Defense= { estadistica: e.target.value};
+            mostrarInfo.Defense = e.target.value
         });
 
         let hearSpecialAttack = document.querySelector("#special-attack")
         hearSpecialAttack.addEventListener("change", (e) =>{
-            mostrarInfo.SpecialAttack= { estadistica: e.target.value};
+            mostrarInfo.SpecialAttack = e.target.value;
         });
 
         let hearSpecialDefense = document.querySelector("#special-defense")
         hearSpecialDefense.addEventListener("change", (e) =>{
-            mostrarInfo.SpecialDefense= { estadistica: e.target.value};
+            mostrarInfo.SpecialDefense =e.target.value;
         });
 
         let hearSpeed = document.querySelector("#speed")
         hearSpeed.addEventListener("change", (e) =>{
-            mostrarInfo.Speed= { estadistica: e.target.value};
+            mostrarInfo.Speed = e.target.value;
         });
 
         //mostrar Informacion
         let sendMockAPI = document.querySelector(".swal2-styled.swal2-cancel")
-        sendMockAPI.addEventListener("click", (e) =>{
+        sendMockAPI.addEventListener("click", async (e) =>{
             console.group("Estadisticas",pokemon.name);
             console.log(mostrarInfo);
             console.groupEnd();
-        })
 
+            const url = 'https://650b10a4dfd73d1fab098284.mockapi.io/PokeDex';
+            
+                e.preventDefault();
+                // Recibe el dato y se pasamos a Object Js para su lectura
+
+                // peticion asincrona
+                const res = await fetch(url);         
+                console.log(res);
+
+                const data = await res.json();
+                console.log(data);
+
+                let config = {
+                    // metodo de poner o subir al API proveniente de la documentacion
+                    method: "POST",
+                    headers:{"content-type":"application/json"},
+                    body:JSON.stringify(mostrarInfo),
+                }
+                const envio = await (await fetch(url,config)).json();
+                
+        });
         //La idea es escuchar los cambios sin enviarlos y guardarlos en un array
         //Luego cuando le de enviar, mostrar un console.log con el grupo y que muestre todas las estadisticas que se cambiaron.
     })
 
+// FUNCIONES
+
+    // SUBIR DATOS AL API
+
+    
     // Añadir elementos a Card
 
     card.appendChild(imgContainerPokemon);
