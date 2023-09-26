@@ -95,7 +95,7 @@ function createPokemon(pokemon) {
             mostrarInfo.Speed = e.target.value;
         });
 
-        //mostrar Informacion
+        //Enviar Informacion
         let sendMockAPI = document.querySelector(".swal2-styled.swal2-cancel")
         sendMockAPI.addEventListener("click", async (e) =>{
             console.group("Estadisticas",pokemon.name);
@@ -121,10 +121,14 @@ function createPokemon(pokemon) {
                     body:JSON.stringify(mostrarInfo),
                 }
                 const envio = await (await fetch(url,config)).json();
-                
         });
         //La idea es escuchar los cambios sin enviarlos y guardarlos en un array
         //Luego cuando le de enviar, mostrar un console.log con el grupo y que muestre todas las estadisticas que se cambiaron.
+        let containerHtml = document.querySelector("#swal2-html-container")
+        containerHtml.addEventListener("input", (e) =>{
+            let myLabel = e.target.nextElementSibling;
+            myLabel.innerHTML = `<b>${e.target.value}</b> ${myLabel.dataset.name}` 
+            })
     })
 
 // FUNCIONES
