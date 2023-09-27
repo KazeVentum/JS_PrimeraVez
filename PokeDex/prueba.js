@@ -1,5 +1,27 @@
 const pokemonContainer = document.querySelector(".pokemonContainer")
 
+function consulta(nombre){
+    fetch(`https://650b10a4dfd73d1fab098284.mockapi.io/PokeDex?Pokemon=${nombre}`)
+    .then(res => res.json())
+    .then(data => console.log(data))
+    }
+
+function buscarNombres(){
+    fetch(`https://650b10a4dfd73d1fab098284.mockapi.io/PokeDex`)
+    .then(res => res.json())
+    .then(data => traerNombres(data))
+}
+
+function traerNombres(nombrePokemon){
+        // Lista para almacenar los valores
+    let listaValores = [];
+
+    // Recorrer el JSON y agregar los valores a la lista
+    for (let i = 0; i < nombrePokemon.length; i++) {
+        listaValores.push(nombrePokemon[i].Pokemon);
+    }
+    console.log(listaValores);
+}
 
 function searchByIdPokemon(id) {
     fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
@@ -61,6 +83,7 @@ function createPokemon(pokemon) {
             imageHeight: "80%",
         });
 
+        // Subir Datos al API
         const mostrarInfo = {}
 
         mostrarInfo.Pokemon = pokemon.name;
@@ -122,8 +145,8 @@ function createPokemon(pokemon) {
                 }
                 const envio = await (await fetch(url,config)).json();
         });
-        //La idea es escuchar los cambios sin enviarlos y guardarlos en un array
-        //Luego cuando le de enviar, mostrar un console.log con el grupo y que muestre todas las estadisticas que se cambiaron.
+
+        // Actualizar Estadisticas en tiempo real.
         let containerHtml = document.querySelector("#swal2-html-container")
         containerHtml.addEventListener("input", (e) =>{
             let myLabel = e.target.nextElementSibling;
@@ -132,16 +155,15 @@ function createPokemon(pokemon) {
     })
 
 // FUNCIONES
-
-    // SUBIR DATOS AL API
-
-    
     // Añadir elementos a Card
 
     card.appendChild(imgContainerPokemon);
     card.appendChild(name);
 
     pokemonContainer.appendChild(card);
-
 }
+
+
+// consulta();
+buscarNombres();
 showPokemon(100);
