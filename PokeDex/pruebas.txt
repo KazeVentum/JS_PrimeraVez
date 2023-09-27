@@ -1,0 +1,3 @@
+Acceder a pokemon
+
+https://650b10a4dfd73d1fab098284.mockapi.io/PokeDex?Pokemon=(nombreDePokemon)
