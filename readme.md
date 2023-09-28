@@ -22,6 +22,29 @@ El archivo CSS `style.css` define los estilos visuales de la aplicación. Esto i
 
 2. Abre el archivo `index.html` en tu navegador web para ejecutar la PokeDex.
 
+3. PokeDex se cargará y mostrará la informacion de los Pokemones.
+![Insertar imagen](Resources/PokeDex.png)
+
+4. Selecciona un pokemon, en este caso sera "Bulbasaur" y da click en el boton con su nombre.
+![Insertar imagen](Resources/Pokemon.png)
+
+5. PokeDex cargará la estadisticas de tu pokemon y podras verlas en pantalla. PokeDex permite editar las estadisticas. Editaremos **Speed**.
+![Insertar imagen](Resources/up.png)
+
+6. La estadistica speed ahora vale 200, si quieres guardar la estadistica puedes dar click en el boton **Enviar**
+![Insertar imagen](Resources/send.png)
+
+7. Al enviar, las estadisticas editadas serán enviadas a MockAPI y guardas. Para **visualizar** que Pokemones tuvieron cambios en tus estadisticas
+**abre la consola del navegador**
+![Insertar imagen](Resources/mockapi.png)
+---
+![Insertar imagen](Resources/console.png)
+
+8. Cualquier cambio en las estadisticas se irá actualizando en *MockAPI* y en la consola de *PokeDex*
+![Insertar imagen](Resources/mockapi-dex.png)
+---
+![Insertar imagen](Resources/console-dex.png)
+
 ## Dependencias
 
 Este proyecto utiliza las siguientes bibliotecas externas:
