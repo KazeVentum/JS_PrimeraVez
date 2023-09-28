@@ -32,6 +32,12 @@ Este proyecto utiliza las siguientes bibliotecas externas:
 
 ¡Eres bienvenido/a a contribuir a este proyecto! Si deseas proponer mejoras o correcciones, puedes abrir problemas (issues) o enviar solicitudes de extracción (pull requests).
 
+## Notas
+
+- Actualmente este proyecto esta en su penultima fase la cual es **Enviar Datos modificados de las estadisticas del Pokemon a MockAPI** (Terminada con Exito)
+
+- La ultima fase en la que la aplicacion debe **Mostrar los datos modificados de vuelta solo de MockAPI** no ha sido posible realizarse aún ya que requiere pruebas y estudio para poderse hacer realidad. (Sigue en Proceso.)
+
 ## Licencia
 
 Este proyecto se encuentra bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para obtener más detalles.
