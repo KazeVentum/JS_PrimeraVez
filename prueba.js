@@ -125,7 +125,7 @@ function createPokemon(pokemon) {
             console.log(mostrarInfo);
             console.groupEnd();
 
-            const url = 'https://650b10a4dfd73d1fab098284.mockapi.io/PokeDex';
+            const url = ' http://127.0.0.222:5002/profile';
             
                 e.preventDefault();
                 // Recibe el dato y se pasamos a Object Js para su lectura
