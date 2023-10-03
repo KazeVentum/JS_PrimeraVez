@@ -13,12 +13,14 @@ export const getAll = async()=>{
     let res = await (await fetch(`${uri}/categoria`, config)).json();
     return res;
 }
+
 export const post = async(obj)=>{
     config.method = "POST";
     config.body = JSON.stringify(obj);
     let res = await (await fetch(`${uri}/categoria`, config)).json();
     return res;
 }
+
 export const deleteOneCategoria = async(id)=>{
     if(typeof id !== 'number') return {status: 400, message: `El datos '${id}' no cumple con el formato`};
     config.method = "DELETE";
@@ -26,13 +28,19 @@ export const deleteOneCategoria = async(id)=>{
     let res = await (await fetch(`${uri}/categoria/${id}`, config)).json();
     return res;
 }
+
 export const putOneCategoria = async(obj={})=>{
 
     if(!obj.id) return {status: 400, message: `Usuario mande bien los datos plis :)`};
-    const {id, nombreCategoria, categoriaId} = obj;
-    if(typeof id !== 'number') return {status: 400, message: `El datos '${id}' no cumple con el formato`};
-    if(typeof categoriaId !== 'number') return {status: 400, message: `El dato '${categoriaId}' no cumple carechimba`};
-    if(typeof nombreCategoria !== 'string') return {status: 400, message: `El datos '${nombreCategoria}' no cumple con el formato`};
+    const {
+        id=null, 
+        nombreCategoria=null, 
+        categoriaId= null
+    } = obj;
+
+    if(typeof id !== 'number') return {status: 400, message: `El dato id '${id}' no cumple con el formato`};
+    if(typeof categoriaId !== 'number') return {status: 400, message: `El dato categoriaId '${categoriaId}' no cumple carechimba`};
+    if(typeof nombreCategoria !== 'string') return {status: 400, message: `El dato nombreCategoria '${nombreCategoria}' no cumple con el formato`};
 
     config.method = "PUT";
     config.body = JSON.stringify(obj);
