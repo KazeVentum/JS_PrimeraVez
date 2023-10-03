@@ -1,8 +1,8 @@
 // Se la configuracion del json-server
-import {env} from "../config.js";
+import env from "../config.js";
 
 //Se oraganiza ingresado a las llaves de config.js
-const uri = `${env.ssl + env.hotsName}:${env.port}`;
+const uri = `${env.ssl + env.hostName}:${env.port}`;
 
 //Nos dice la configuracion del HTTP,  El metodo esta indefinido ya que cambiara en la siguientes funciones y tambien dice como se mandara a informacion, en este caso json
 const config = {method: undefined, headers: {"Content-Type": "application/json"}};
@@ -48,8 +48,7 @@ export const putOne = async(obj={})=>{
 
 
 
-// console.log(await post({titulo:"Pepito", fecha: "2023-08-10"}));
+console.log(await post({titulo:"Pepito", fecha: "2023-08-10"}));
 // console.log(await getAll());
 // console.log(await deleteOne(1));
-
-console.log(putOne({id:"123"}));
+// console.log(await putOne({id:300}));
