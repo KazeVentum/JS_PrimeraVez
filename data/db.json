@@ -4,23 +4,20 @@
       "id_categoria": 7,
       "nombreCategoria": "Terror",
       "id": 1
-    },
-    {
-      "id_categoria": 7,
-      "nombreCategoria": "Terror",
-      "id": 2
     }
   ],
+
   "editorial": [],
+
   "estado-libro": [],
-  "libro": [
-    {
-      "id": 1,
-      "titulo": "Careverga"
-    }
-  ],
+
+  "libro": [],
+  
   "prestamo": [],
+
   "reserva": [],
+
   "autor": [],
+  
   "usuario": []
 }
