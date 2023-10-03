@@ -5,7 +5,7 @@ Este repositorio pertenece a [Cristian Camilo Pardo Hernandez (KazeVentum)](http
 
 Este repositorio está dividido en ramas, en cada rama encontrarás un proyecto, se irán actualizando conforme el Trainer nos asigne más proyectos.
 
-Actualmente Hay 3 Ramas:
+Actualmente Hay 4 Ramas:
 
 - PokeDex-Definitivo
 - PokeDex-Defectuoso-CopiaDeCommits
