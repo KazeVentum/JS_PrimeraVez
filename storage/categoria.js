@@ -29,9 +29,9 @@ export const deleteOneCategoria = async(id)=>{
 export const putOneCategoria = async(obj={})=>{
 
     if(!obj.id) return {status: 400, message: `Usuario mande bien los datos plis :)`};
-    const {nombreCategoria} = obj;
+    const {id, nombreCategoria, categoriaId} = obj;
     if(typeof id !== 'number') return {status: 400, message: `El datos '${id}' no cumple con el formato`};
-    // if(typeof categoriaId !== 'number') return {status: 400, message: `El dato '${categoriaId}' no cumple carechimba`};
+    if(typeof categoriaId !== 'number') return {status: 400, message: `El dato '${categoriaId}' no cumple carechimba`};
     if(typeof nombreCategoria !== 'string') return {status: 400, message: `El datos '${nombreCategoria}' no cumple con el formato`};
 
     config.method = "PUT";
@@ -44,4 +44,4 @@ export const putOneCategoria = async(obj={})=>{
 // console.log(await post({id_categoria: 7, categoria: "Terror"}));  // FUNCIONANDO
 // console.log(await getAll()); //FUNCIONANDO
 // console.log(await deleteOneCategoria(1)); //FUNCIONANDO
-console.log(await putOneCategoria({id:1, nombreCategoria:"Historia"}));
+// console.log(await putOneCategoria({id:1, nombreCategoria:"Historia", categoriaId:70})); // FUNCIONANDO
